@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 
 import "react-loading-skeleton/dist/skeleton.css";
+import { Toast } from "@/components/ui/toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         'min-h-screen font-sans autialiased grainy',
         inter.className
       )}>
+        
         <Navbar />
         {children}
       </body>

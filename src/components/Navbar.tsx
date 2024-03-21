@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link
             href='/'
             className='flex z-40 font-semibold'>
-            <span>quill.</span>
+            <span>Chat-PDF.</span>
           </Link>
 
           
