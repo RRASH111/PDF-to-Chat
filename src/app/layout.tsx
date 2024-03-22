@@ -7,7 +7,8 @@ import Providers from "@/components/Providers";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import { Toast } from "@/components/ui/toast";
-
+import { Toaster } from "@/components/ui/toaster";
+import 'simplebar-react/dist/simplebar.min.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
         'min-h-screen font-sans autialiased grainy',
         inter.className
       )}>
-        
+        {/*<Toaster/>*/}
         <Navbar />
         {children}
       </body>
