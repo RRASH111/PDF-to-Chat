@@ -22,6 +22,7 @@ interface Props {
 
 export const  ChatContextProvider = ({fileId, children}: Props) => {
     const [message, setMessage] = useState<string>('')
+    const  [isLoading, setIsLoading] = useState<boolean>(false)
 
     const { mutate: sendMessage } = useMutation({
         mutationFn: async ({message}: {message: string}) => {
@@ -41,7 +42,9 @@ export const  ChatContextProvider = ({fileId, children}: Props) => {
         }
     })
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>)
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setMessage(e.target.value)
+    }
 
 
 
