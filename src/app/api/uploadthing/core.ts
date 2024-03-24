@@ -2,10 +2,12 @@ import { db } from "@/db";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
+
+
 import { PDFLoader } from 'langchain/document_loaders/fs/pdf'
-import { OpenAIEmbeddings } from "langchain/embeddings/openai"
-import { PineconeStore } from '@langchain/pinecone'
-import { getPineconeClient, pinecone } from "@/lib/pinecone";
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
+import { PineconeStore } from 'langchain/vectorstores/pinecone'
+import { getPineconeClient } from '@/lib/pinecone'
 
  
 const f = createUploadthing();
@@ -48,31 +50,36 @@ export const ourFileRouter = {
         const pineconeIndex = pinecone.Index("chat-pdf")
 
         const embeddings = new OpenAIEmbeddings({
-          openAIApiKey: process.env.OPENAI_API_KEY
-        })
+      openAIApiKey: process.env.OPENAI_API_KEY,
+    })
 
-        await PineconeStore.fromDocuments(pageLevelDocs, embeddings, { 
-          pineconeIndex,
-          namespace: createdFile.id,
-        })
-        await db.file.update({
-          data: {
-            uploadStatus: "SUCCESS"
-          },
-          where:{
-            id: createdFile.id
-          }
-        })
-      } catch (err){
-        await db.file.update({
-          data: {
-            uploadStatus: "FAILED"
-          },
-          where:{
-            id: createdFile.id
-          }
-        })
+    await PineconeStore.fromDocuments(
+      pageLevelDocs,
+      embeddings,
+      {
+        pineconeIndex,
+        namespace: createdFile.id,
       }
+    )
+
+    await db.file.update({
+      data: {
+        uploadStatus: 'SUCCESS',
+      },
+      where: {
+        id: createdFile.id,
+      },
+    })
+  } catch (err) {
+    await db.file.update({
+      data: {
+        uploadStatus: 'FAILED',
+      },
+      where: {
+        id: createdFile.id,
+      },
+    })
+  }
     }),
 } satisfies FileRouter;
  
