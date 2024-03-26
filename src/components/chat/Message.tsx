@@ -24,7 +24,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
             {
               'order-2 bg-orange-600 rounded-sm':
                 message.isUserMessage,
-              'order-1 bg-zinc-800 rounded-sm':
+              'order-1 bg-zinc-700 rounded-sm':
                 !message.isUserMessage,
               invisible: isNextMessageSamePerson,
             }
@@ -76,7 +76,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
                   'text-xs select-none mt-2 w-full text-right',
                   {
                     'text-zinc-500': !message.isUserMessage,
-                    'text-blue-300': message.isUserMessage,
+                    'text-orange-300': message.isUserMessage,
                   }
                 )}>
                 {format(

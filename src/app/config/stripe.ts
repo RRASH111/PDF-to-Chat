@@ -24,5 +24,18 @@ export const PLANS =[
                 production: '',
             }
         }
-    }
+    },
+    {
+        name: "Enterprise",
+        slug: 'enterprise',
+        quota: 1000,
+        pagesPerPdf: 250,
+        price: {
+          amount: 485,
+          priceIds: {
+            test: 'price_1OyJJIAaHYxVhgRyHO7c0nNi',
+            production: '',
+          }
+        }
+      }
 ]

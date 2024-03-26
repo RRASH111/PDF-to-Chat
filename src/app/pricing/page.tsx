@@ -83,11 +83,41 @@ const Page = async () => {
         },
       ],
     },
+    {
+      plan: 'Enterprise',
+      tagline: 'For large-scale enterprises',
+      quota: PLANS.find((p) => p.slug === 'enterprise')!.quota, // Replace with your actual quota
+      features: [
+        {
+          text: '500+ pages per PDF',
+          footnote:
+            'Tailored page limits based on enterprise needs.',
+        },
+        {
+          text: '256MB+ file size limit',
+          footnote:
+            'Flexibility to set file size limits according to requirements.',
+        },
+        {
+          text: 'Account manager',
+          footnote:
+            'Direct point of contact for personalized support.',
+        },
+        {
+          text: 'High Privacy',
+          footnote:
+            'Advanced security measures for safeguarding sensitive data.',
+        },
+        {
+          text: 'priority support 24/7',
+        },
+      ],
+    },
   ]
 
   return (
     <>
-      <MaxWidthWrapper calssName='mb-8 mt-24 text-center max-w-5xl'>
+      <MaxWidthWrapper calssName='mb-8 mt-24 text-center max-w-6xl'>
         <div className='mx-auto mb-10 sm:max-w-lg'>
           <h1 className='text-6xl font-bold sm:text-7xl'>
             Pricing
@@ -98,7 +128,7 @@ const Page = async () => {
           </p>
         </div>
 
-        <div className='pt-12 grid grid-cols-1 gap-10 lg:grid-cols-2'>
+        <div className='pt-15 grid grid-cols-1 gap-5 lg:grid-cols-3'>
           <TooltipProvider>
             {pricingItems.map(
                 ({ plan, tagline, quota, features}) => {

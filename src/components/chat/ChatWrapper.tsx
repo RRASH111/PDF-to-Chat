@@ -8,6 +8,7 @@ import { ChevronLeft, Loader2, XCircle } from "lucide-react"
 import Link from "next/link"
 import { buttonVariants } from "../ui/button"
 import { ChatContextProvider } from "./ChatContext"
+import { useEffect } from "react"
 
 interface ChatWrapperProps {
   fileId: string
@@ -21,19 +22,19 @@ const ChatWrapper = ({
   fileId,
   isSubscribed,
 }: ChatWrapperProps) => {
-  const { data, isLoading } =
-    trpc.getFileUploadStatus.useQuery(
-      {
-        fileId,
-      },
-      {
-        refetchInterval: (data) =>
-          data?.status === 'SUCCESS' ||
-          data?.status === 'FAILED'
-            ? false
-            : 500,
-      }
-    )
+  const { data, isLoading } = trpc.getFileUploadStatus.useQuery({
+    fileId
+  })
+  
+  useEffect(() => {
+    if (!data) return
+  
+    if (data.status === 'SUCCESS') {
+      // Upload succeeded, do something
+    } else if (data.status === 'FAILED') {
+      // Upload failed, do something else
+    }
+  }, [data])
     
     if(isLoading) return (
       <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
