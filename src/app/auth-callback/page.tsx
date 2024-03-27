@@ -1,11 +1,22 @@
-"use client"
-import { useRouter, useSearchParams } from 'next/navigation';
+'use client'
+
+import { useRouter } from 'next/navigation';
 import { trpc } from '../_trpc/client';
 import { Loader2 } from 'lucide-react';
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-const Page = () => {
+const AuthCallbackPage = () => {
   const router = useRouter();
 
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthCallbackContent router={router} />
+    </Suspense>
+  );
+};
+
+const AuthCallbackContent = ({ router } : { router: any }) => {
   const searchParams = useSearchParams();
   const origin = searchParams.get('origin');
 
@@ -38,4 +49,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default AuthCallbackPage;
