@@ -33,7 +33,7 @@ export default function Home() {
             href="/dashboard"
             target="_blank"
           >
-            Demo <PlayCircleIcon className="ml-2 h-5 w-5" />
+            Demo<PlayCircleIcon className="ml-2 h-5 w-5" />
           </Link>
           <Link
             className={buttonVariants({
@@ -44,7 +44,7 @@ export default function Home() {
             href="/dashboard"
             target="_blank"
           >
-            Get started <ArrowRight className="ml-2 h-5 w-5" />
+            Get started<ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
 
