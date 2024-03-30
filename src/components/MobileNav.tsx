@@ -49,10 +49,10 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                 <li>
                   <Link
                     onClick={() =>
-                      closeOnCurrent('/sign-in')
+                      closeOnCurrent('/api/auth/login? ')
                     }
                     className='flex items-center w-full font-semibold'
-                    href='/sign-in'>
+                    href='/api/auth/login? '>
                     Sign in
                   </Link>
                 </li>

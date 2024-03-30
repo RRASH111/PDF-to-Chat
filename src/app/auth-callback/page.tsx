@@ -28,7 +28,7 @@ const AuthCallbackContent = ({ router }: { router: any }) => {
     },
     onError: (err: any) => {
       if (err.data?.code === 'UNAUTHORIZED') {
-        router.push('/sign-in');
+        router.push('/api/auth/login? ');
       }
     },
     retry: true,

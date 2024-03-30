@@ -241,7 +241,7 @@ const Page = async () => {
                             <div className='border-t border-gray-200' />
                                 <div className='p-5'>
                                     {plan == "Free"? (
-                                        <Link href={user ? '/dashboard' : "/sign-in"}
+                                        <Link href={user ? '/dashboard' : "/api/auth/login? "}
                                         className={buttonVariants({
                                             className: 'w-full',
                                             variant: 'secondary',
