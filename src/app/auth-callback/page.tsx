@@ -16,14 +16,13 @@ const AuthCallbackPage = () => {
   );
 };
 
-const AuthCallbackContent = ({ router } : { router: any }) => {
+const AuthCallbackContent = ({ router }: { router: any }) => {
   const searchParams = useSearchParams();
   const origin = searchParams.get('origin');
 
   trpc.authCallback.useQuery(undefined, {
     onSuccess: ({ success }: { success: boolean }) => {
       if (success) {
-        // user is synced to db
         router.push(origin ? `/${origin}` : '/dashboard');
       }
     },
@@ -34,7 +33,7 @@ const AuthCallbackContent = ({ router } : { router: any }) => {
     },
     retry: true,
     retryDelay: 500,
-  } as any); // Casting to any to bypass TypeScript error
+  } as any);
 
   return (
     <div className='w-full mt-24 flex justify-center'>
