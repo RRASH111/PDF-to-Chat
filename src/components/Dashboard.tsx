@@ -13,7 +13,7 @@ import { getUserSubscriptionPlan } from "@/lib/stripe"
 interface PageProps {
     subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
 }
-const Dashboard = ([subscriptionPlan]: PageProps) => {
+const Dashboard = ({ subscriptionPlan }: PageProps) => {
     const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<string | null>(null)
 
     const utils = trpc.useContext()
@@ -31,6 +31,7 @@ const Dashboard = ([subscriptionPlan]: PageProps) => {
             setCurrentlyDeletingFile(null)
         }
     })
+
 
   return (
     <main className="mx-auto max-w-7xl md:p-10">

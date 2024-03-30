@@ -5,7 +5,7 @@ const MaxWidthWrapper = ({
     calssName,
     children
 }:{
-    calssName: string,
+    calssName?: string,
     children: ReactNode
 }) => {
   return (
