@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/tooltip'
 import { PLANS } from '@/app/config/stripe'
 import { cn } from '@/lib/utils'
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import { RegisterLink, getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {
   ArrowRight,
   Check,
@@ -252,12 +252,13 @@ const Page = async () => {
                                     ): user ? (
                                         <UpgradeButton/>
                                     ):(
-                                        <Link href='/sign-in' className={buttonVariants({
-                                            className: 'w-full'
-                                        })}>
+                                        <RegisterLink className={buttonVariants({
+                                          className: 'w-full'
+                                      })}>
+                                        
                                             {user ? "Upgrade now" : "Sign up"}
                                             <ArrowRight className='h-5 w-5 ml-1.5'/>
-                                        </Link>
+                                        </RegisterLink>
                                     )}
                                 </div>
                         </div>
