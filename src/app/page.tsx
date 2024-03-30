@@ -50,30 +50,45 @@ export default function Home() {
 
         <div className="flex items-center mb-12">
           <div className="flex justify-center items-center mr-6">
-            <img
-              src="https://placehold.co/32x32"
+            <Image
+              src='/users/1.jpg'
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
+              width={40}
+              height={40}
+              objectFit="cover"
             />
-            <img
-              src="https://placehold.co/32x32"
+            <Image
+              src='/users/2.jpg'
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
+              width={40}
+              height={40}
+              objectFit="cover"
             />
-            <img
-              src="https://placehold.co/32x32"
+            <Image
+              src='/users/3.jpg'
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
+              width={40}
+              height={40}
+              objectFit="cover"
             />
-            <img
-              src="https://placehold.co/32x32"
+            <Image
+              src='/users/4.jpg'
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
+              width={40}
+              height={40}
+              objectFit="cover"
             />
-            <img
-              src="https://placehold.co/32x32"
+            <Image
+              src='/users/5.jpg'
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
+              width={40}
+              height={40}
+              objectFit="cover"
             />
           </div>
           <div className="text-centerflex justify-center items-center">
