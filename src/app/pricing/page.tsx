@@ -1,5 +1,5 @@
 
-
+import type { Metadata } from "next";
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import UpgradeButton from '@/components/UpgradeButton'
 import { buttonVariants } from '@/components/ui/button'
@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { PLANS } from '@/app/config/stripe'
-import { cn } from '@/lib/utils'
+import { cn, constructMetadata } from '@/lib/utils'
 import { RegisterLink, getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {
   ArrowRight,
@@ -19,6 +19,8 @@ import {
   Minus,
 } from 'lucide-react'
 import Link from 'next/link'
+
+const metadata = constructMetadata("home");
 
 const Page = async () => {
   const { getUser } = getKindeServerSession()

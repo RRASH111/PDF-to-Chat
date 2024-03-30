@@ -9,26 +9,36 @@ export function cn(...inputs: ClassValue[]) {
 
 export function absoluteUrl(path: string) {
   if (typeof window !== 'undefined') return path
-  if (process.env.VERCEL_URL)
-    return `https://${process.env.VERCEL_URL}${path}`
+  if (process.env.URL)
+    return `https://${process.env.URL}${path}`
   return `http://localhost:${
     process.env.PORT ?? 3000
   }${path}`
 }
 
-export function constructMetadata({
-  title = "PDF To Chat - Chat with your PDF",
-  description = "PDF To Chat is a software that helps you chat with your PDF documents.",
-  image = "/thumbnail.png",
-  icons = "/favicon.ico",
-  noIndex = false
-}: {
-  title?: string
-  description?: string
-  image?: string
-  icons?: string
-  noIndex?: boolean
-} = {}): Metadata {
+export function constructMetadata(
+  pageType: string,
+  {
+    title = "PDF To Chat - Chat with your PDF",
+    description = "PDF To Chat is a software that helps you chat with your PDF documents.",
+    image = "/thumbnail.png",
+    icons = "/favicon.ico",
+    noIndex = false
+  }: {
+    title?: string;
+    description?: string;
+    image?: string;
+    icons?: string;
+    noIndex?: boolean;
+  } = {}
+): Metadata {
+  
+  if (pageType === "home") {
+    title = "PDF To Chat - Chat with your PDF";
+  } else if (pageType === "pricing") {
+    title = "PDF To Chat - Pricing";
+  }
+
   return {
     title,
     description,
@@ -49,7 +59,7 @@ export function constructMetadata({
       creator: "@Rani_Shwaiki"
     },
     icons,
-    metadataBase: new URL('https://PDFto.chat'),
+    metadataBase: new URL('https://PDFTo.chat'),
     themeColor: '#FFF',
     ...(noIndex && {
       robots: {
@@ -57,5 +67,5 @@ export function constructMetadata({
         follow: false
       }
     })
-  }
+  };
 }
