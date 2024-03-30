@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import PriceTool from "@/components/priceTool";
 import FeatureSec from "@/components/FeatureSec";
 
+
 export default function Home() {
   return (
     <>

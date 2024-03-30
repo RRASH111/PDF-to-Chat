@@ -9,6 +9,7 @@ import {
 import { ArrowRight } from 'lucide-react'
 import UserAccountNav from './UserAccountNav'
 import MobileNav from './MobileNav'
+import Image from 'next/image'
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession()
@@ -21,8 +22,15 @@ const Navbar = async () => {
           <Link
             href='/'
             className='flex z-40 font-semibold'>
-            <span className='bg-gradient-to-r from-orange-500 via-orange-500 to-amber-400 bg-clip-text text-transparent text-xl'>PDF To Chat.</span>
+            <Image
+            src='/PDF.png'
+            alt='logo'
+            width={50}
+            height={50}
+            className='cursor-pointer'
+          />
           </Link>
+          
 
           <MobileNav isAuth={!!user} />
 
@@ -37,7 +45,7 @@ const Navbar = async () => {
                   })}>
                   Pricing
                 </Link>
-                <LoginLink
+                <LoginLink 
                   className={buttonVariants({
                     variant: 'ghost',
                     size: 'sm',

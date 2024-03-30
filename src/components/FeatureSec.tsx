@@ -8,10 +8,10 @@ import Image from "next/image";
 
 const FeatureSec = () => {
   return (
-    <MaxWidthWrapper calssName="w-max-screen">
-    <div className="min-h-screen w-max-screen bg-gradient-to-r from-orange-500 via-orange-500 to-amber-400 bg-clip-text text-transparent">
-      <div className="py-20 w-8xl ">
-        <div className="max-w-8xl mx-auto">
+    <MaxWidthWrapper calssName="w-max-screen w-max ">
+    <div className="min-h-screen w-max-screen bg-gradient-to-r from-orange-500 via-orange-500 to-amber-400 bg-clip-text text-transparent ">
+      <div className="py-20 px-5 w-8xl w-fit flex flex-col items-center justify-center ">
+        <div className="max-w-8xl -mx-52 w-fit flex flex-col items-center justify-center mr-16	">
          
           <div className="grid grid-cols-1 my-5 md:grid-cols-2 gap-16">
             <div className="flex flex-col items-start justify-center">
@@ -136,7 +136,7 @@ const FeatureSec = () => {
             </div>
             <div>
             <Image
-                    src='/feature/1.png'
+                    src='/feature/3.png'
                     alt="Tablet displaying a document with text and graphs, with an interface overlay for asking questions and getting AI responses"
                     className="rounded-lg shadow-lg"
                     width={600}
