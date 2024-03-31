@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
-const metadata = constructMetadata("home");
+const metadata = constructMetadata("pricing");
 
 const Page = async () => {
   const { getUser } = getKindeServerSession()
