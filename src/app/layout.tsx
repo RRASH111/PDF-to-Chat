@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/toaster";
 import 'simplebar-react/dist/simplebar.min.css'
 const inter = Inter({ subsets: ["latin"] });
 
-const metadata = constructMetadata("home");
+const metadata = constructMetadata();
 
 export default function RootLayout({
   children,

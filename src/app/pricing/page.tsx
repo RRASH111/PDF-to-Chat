@@ -10,7 +10,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { PLANS } from '@/app/config/stripe'
-import { cn, constructMetadata } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { RegisterLink, getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {
   ArrowRight,
@@ -20,7 +20,6 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
-const metadata = constructMetadata("pricing");
 
 const Page = async () => {
   const { getUser } = getKindeServerSession()
@@ -82,36 +81,6 @@ const Page = async () => {
         },
         {
           text: 'Priority support',
-        },
-      ],
-    },
-    {
-      plan: 'Enterprise',
-      tagline: 'For large-scale enterprises',
-      quota: PLANS.find((p) => p.slug === 'enterprise')!.quota, // Replace with your actual quota
-      features: [
-        {
-          text: '500+ pages per PDF',
-          footnote:
-            'Tailored page limits based on enterprise needs.',
-        },
-        {
-          text: '256MB+ file size limit',
-          footnote:
-            'Flexibility to set file size limits according to requirements.',
-        },
-        {
-          text: 'Account manager',
-          footnote:
-            'Direct point of contact for personalized support.',
-        },
-        {
-          text: 'High Privacy',
-          footnote:
-            'Advanced security measures for safeguarding sensitive data.',
-        },
-        {
-          text: 'priority support 24/7',
         },
       ],
     },

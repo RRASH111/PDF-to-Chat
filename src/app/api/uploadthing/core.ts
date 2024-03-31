@@ -65,7 +65,7 @@ const onUploadComplete = async({
 
     const pagesAmt = pageLevelDocs.length
     const { subscriptionPlan } = metadata
-  const { isSubscribed } = subscriptionPlan
+    const { isSubscribed } = subscriptionPlan
 
 
     const isProExceeded =
@@ -132,9 +132,6 @@ export const ourFileRouter = {
     .middleware(middleware)
     .onUploadComplete(onUploadComplete),
   proPlanUploader: f({ pdf: { maxFileSize: "32MB" } })
-    .middleware(middleware)
-    .onUploadComplete(onUploadComplete),
-  entPlanUploader: f({ pdf: { maxFileSize: "256MB" } })
     .middleware(middleware)
     .onUploadComplete(onUploadComplete),
 } satisfies FileRouter;

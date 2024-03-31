@@ -5,9 +5,9 @@ import { ArrowRight, PlayCircleIcon, StarsIcon, Star } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import PriceTool from "@/components/priceTool";
 import FeatureSec from "@/components/FeatureSec";
-import { constructMetadata } from "@/lib/utils";
 
-const metadata = constructMetadata("home");
+
+
 
 export default function Home() {
   return (
