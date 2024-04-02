@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/toaster";
 import 'simplebar-react/dist/simplebar.min.css'
 const inter = Inter({ subsets: ["latin"] });
 
-const metadata = constructMetadata();
+export const metadata = constructMetadata()
 
 export default function RootLayout({
   children,
@@ -25,7 +25,7 @@ export default function RootLayout({
         'min-h-screen font-sans autialiased grainy',
         inter.className
       )}>
-        {/*<Toaster/>*/}
+        <Toaster/>
         <Navbar />
         {children}
       </body>

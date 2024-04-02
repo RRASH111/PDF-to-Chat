@@ -16,29 +16,19 @@ export function absoluteUrl(path: string) {
   }${path}`
 }
 
-export function constructMetadata(
-  pageType: string,
-  {
-    title = "PDF To Chat - Chat with your PDF",
-    description = "PDF To Chat is a software that helps you chat with your PDF documents.",
-    image = "/thumbnail.png",
-    icons = "/favicon.ico",
-    noIndex = false
-  }: {
-    title?: string;
-    description?: string;
-    image?: string;
-    icons?: string;
-    noIndex?: boolean;
-  } = {}
-): Metadata {
-  
-  if (pageType === "home") {
-    title = "PDF To Chat - Chat with your PDF";
-  } else if (pageType === "pricing") {
-    title = "PDF To Chat - Pricing";
-  }
-
+export function constructMetadata({
+  title = "PDF To Chat - Chat with your PDF",
+  description = "PDF To Chat is a software that helps you chat with your PDF documents.",
+  image = "/thumbnail.png",
+  icons = "/favicon.ico",
+  noIndex = false
+}: {
+  title?: string
+  description?: string
+  image?: string
+  icons?: string
+  noIndex?: boolean
+} = {}): Metadata {
   return {
     title,
     description,
@@ -67,5 +57,5 @@ export function constructMetadata(
         follow: false
       }
     })
-  };
+  }
 }

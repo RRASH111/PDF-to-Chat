@@ -29,60 +29,64 @@ const PriceTool = async() => {
   const pricingItems = [
     {
       plan: 'Free',
-      tagline: 'For small side projects.',
-      quota: 10,
+      tagline: 'Free plan, test the waters before you jump in.',
+      quota: 1,
       features: [
         {
-          text: '5 pages per PDF',
+          text: '20 pages per PDF',
           footnote:
             'The maximum amount of pages per PDF-file.',
         },
         {
-          text: '4MB file size limit',
+          text: '50 Questions limit',
+        },
+        {
+          text: '5MB max file size',
           footnote:
             'The maximum file size of a single PDF file.',
         },
         {
-          text: 'Mobile-friendly interface',
+          text: 'Basic support',
+          negative: false,
         },
+        
         {
           text: 'Higher-quality responses',
           footnote:
             'Better algorithmic responses for enhanced content quality',
           negative: true,
         },
-        {
-          text: 'Priority support',
-          negative: true,
-        },
+        
       ],
     },
     {
       plan: 'Pro',
-      tagline: 'For larger projects with higher needs.',
+      tagline: 'Advanced features for those who are serious.',
       quota: PLANS.find((p) => p.slug === 'pro')!.quota,
       features: [
         {
-          text: '25 pages per PDF',
+          text: '2000 pages per PDF',
           footnote:
             'The maximum amount of pages per PDF-file.',
         },
         {
-          text: '16MB file size limit',
+          text: 'Unlimited Questions',
+        },
+        {
+          text: '32MB max file size',
           footnote:
             'The maximum file size of a single PDF file.',
         },
         {
-          text: 'Mobile-friendly interface',
+          text: 'Chat & email support',
         },
+        
         {
           text: 'Higher-quality responses',
           footnote:
             'Better algorithmic responses for enhanced content quality',
         },
-        {
-          text: 'Priority support',
-        },
+        
       ],
     },
     
@@ -133,11 +137,30 @@ const PriceTool = async() => {
                                 </p>
                             </div>
 
+                            {plan === 'Pro' && (
                             <div className='flex h-20 items-center justify-center border-b border-t border-gray-200 bg-gray-50'>
                             <div className='flex items-center space-x-1'>
                                 <p>
-                                {quota.toLocaleString()} PDFs/mo
-                                included
+                                <span className='text-orange-600 shadow-orange-200'>Unlimited</span> Downloads
+                                </p>
+
+                                <Tooltip delayDuration={300}>
+                                <TooltipTrigger className='cursor-default ml-1.5'>
+                                    <HelpCircle className='h-4 w-4 text-zinc-500' />
+                                </TooltipTrigger>
+                                <TooltipContent className='w-55 p-2'>
+                                  You can upload Unlimited PDFs.
+                                </TooltipContent>
+                                </Tooltip>
+                            </div>
+                            </div>
+                            )}
+
+                            {plan === 'Free' && (
+                            <div className='flex h-20 items-center justify-center border-b border-t border-gray-200 bg-gray-50'>
+                            <div className='flex items-center space-x-1'>
+                                <p>
+                                {quota.toLocaleString()} PDF upload limit
                                 </p>
 
                                 <Tooltip delayDuration={300}>
@@ -151,6 +174,9 @@ const PriceTool = async() => {
                                 </Tooltip>
                             </div>
                             </div>
+                            )}
+
+                            
 
                             
 
