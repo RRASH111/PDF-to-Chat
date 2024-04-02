@@ -14,6 +14,7 @@ import {
 import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import { format } from 'date-fns'
+import { useState } from 'react'
 
 interface BillingFormProps {
   subscriptionPlan: Awaited<
@@ -26,28 +27,39 @@ const BillingForm = ({
 }: BillingFormProps) => {
   const { toast } = useToast()
 
-  const { mutate: createStripeSession } =
-    trpc.createStripeSession.useMutation({
-      onSuccess: ({ url }) => {
-        if (url) window.location.href = url
-        if (!url) {
-          toast({
-            title: 'There was a problem...',
-            description: 'Please try again in a moment',
-            variant: 'destructive',
-          })
-        }
-      },
-    })
+  const { mutate: createStripeSession } = trpc.createStripeSession.useMutation({
+    onSuccess: ({ url }) => {
+      if (url) window.location.href = url;
+      if (!url) {
+        toast({
+          title: 'There was a problem...',
+          description: 'Please try again in a moment',
+          variant: 'destructive',
+        });
+      }
+    },
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+const handleCreateStripeSession = async () => {
+  setIsLoading(true);
+  try {
+    await createStripeSession();
+  } catch (error) {
+    // Handle error
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <MaxWidthWrapper calssName='max-w-5xl'>
-      <form
-        className='mt-12'
-        onSubmit={(e) => {
-          e.preventDefault()
-          createStripeSession()
-        }}>
+      <form className="mt-12" onSubmit={(e) => {
+      e.preventDefault();
+      handleCreateStripeSession();
+       }}>
         <Card>
           <CardHeader>
             <CardTitle>Subscription Plan</CardTitle>
@@ -58,12 +70,14 @@ const BillingForm = ({
           </CardHeader>
 
           <CardFooter className='flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0'>
-            <Button type='submit'>
-              { null}
-              {subscriptionPlan.isSubscribed
-                ? 'Manage Subscription'
-                : 'Upgrade to PRO'}
-            </Button>
+          <Button type="submit" disabled={isLoading}>
+          {isLoading ? (
+            <Loader2 className="mr-4 h-4 w-4 animate-spin" />
+          ) : null}
+          {subscriptionPlan.isSubscribed
+            ? 'Manage Subscription'
+            : 'Upgrade to PRO'}
+          </Button>
 
             {subscriptionPlan.isSubscribed ? (
               <p className='rounded-full text-xs font-medium'>

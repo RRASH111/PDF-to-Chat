@@ -1,14 +1,16 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import PriceTool from "@/components/priceTool";
-import { constructMetadata } from '@/lib/utils';
 
+import { constructMetadata } from '@/lib/utils';
 export const metadata = constructMetadata({
-  title: "Custom Title",
-  description: "Custom Description",
-  image: "/custom-thumbnail.png",
-  icons: "/custom-favicon.ico",
+  title: "PDF To Chat  - Pricing",
+  description: "PDF To Chat is a software that helps you chat with your PDF documents.",
+  image: "/thumbnail.png",
+  icons: "/favicon.ico",
   noIndex: true
 })
+
+
 const Page = async () => {
   
 
