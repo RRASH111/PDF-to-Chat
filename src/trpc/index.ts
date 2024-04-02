@@ -49,7 +49,7 @@ export const appRouter = router({
     async ({ ctx }) => {
       const { userId } = ctx
 
-      const billingUrl = absoluteUrl('/dashboard/billing')
+      const billingUrl = absoluteUrl('https://www.pdfto.chat/dashboard/billing')
 
       if (!userId)
         throw new TRPCError({ code: 'UNAUTHORIZED' })
