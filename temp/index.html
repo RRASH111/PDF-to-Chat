@@ -1,71 +1,65 @@
 <html>
 <head>
-    <title>PDF Chat Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Answers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/react/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
     <div id="app"></div>
+
     <script type="text/babel">
         function App() {
             return (
-                <div className="bg-white">
-                    <div className="container mx-auto px-4 py-12">
-                        <div className="text-center">
-                            <h1 className="text-4xl font-bold mb-4">Chat with any PDF document</h1>
-                            <p className="text-gray-600 mb-8">
-                                From legal agreements to financial reports, PDF To Chat brings your documents<br/>
-                                to life. You can ask questions, get summaries, find information, and more.
-                            </p>
-                            <div className="flex justify-center gap-4 mb-6">
-                                <button className="border border-gray-300 px-6 py-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors">Demo</button>
-                                <button className="bg-yellow-400 px-6 py-2 rounded-full text-white hover:bg-yellow-500 transition-colors">Sign up</button>
-                            </div>
-                            <div className="flex justify-center items-center mb-6">
-                                <img src="https://placehold.co/32x32" alt="User profile placeholder image" className="rounded-full border-2 border-white -ml-2"/>
-                                <img src="https://placehold.co/32x32" alt="User profile placeholder image" className="rounded-full border-2 border-white -ml-2"/>
-                                <img src="https://placehold.co/32x32" alt="User profile placeholder image" className="rounded-full border-2 border-white -ml-2"/>
-                                <img src="https://placehold.co/32x32" alt="User profile placeholder image" className="rounded-full border-2 border-white -ml-2"/>
-                                <img src="https://placehold.co/32x32" alt="User profile placeholder image" className="rounded-full border-2 border-white -ml-2"/>
-                            </div>
-                            <div className="text-yellow-400 mb-12">
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <span className="text-gray-600 ml-2">5.0 from 20,000+ reviews</span>
-                            </div>
-                        </div>
-                        <div className="flex justify-center">
-                            <div className="w-full md:w-2/3 lg:w-1/2">
-                                <div className="relative">
-                                    <img src="https://placehold.co/600x400" alt="A smiling person sitting in a well-lit room with a white wall in the background" className="rounded-lg shadow-lg"/>
-                                    <button className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                                        <i className="fas fa-play text-gray-800 text-2xl"></i>
-                                    </button>
+                <div className="min-h-screen bg-orange-100">
+                    <div className="py-20 px-8">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                                <div className="flex flex-col items-start justify-center">
+                                    <h2 className="text-5xl font-bold text-gray-800 mb-6">Instant Answers</h2>
+                                    <p className="text-gray-600 text-lg mb-8">
+                                        Ask questions, extract information, and summarize documents with AI. We give you instantaneous answers. Just ask.
+                                    </p>
+                                    <div className="flex space-x-4">
+                                        <button className="bg-transparent border border-gray-800 text-gray-800 py-2 px-6 rounded hover:bg-gray-800 hover:text-white transition-colors duration-300">
+                                            Demo
+                                        </button>
+                                        <button className="bg-orange-500 text-white py-2 px-6 rounded hover:bg-orange-600 transition-colors duration-300">
+                                            Sign up
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="https://placehold.co/600x400" alt="Tablet displaying a document with text and graphs, with an interface overlay for asking questions and getting AI responses" className="shadow-lg"/>
                                 </div>
                             </div>
-                        </div>
-                        <div className="text-center mt-12">
-                            <p className="text-gray-600">Honored to serve students from all Ivy League schools</p>
-                            <div className="flex justify-center mt-4">
-                                <img src="https://placehold.co/100x50" alt="Brown University logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="Cornell University logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="Dartmouth College logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="Harvard University logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="University of Pennsylvania logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="Princeton University logo" className="mx-2"/>
-                                <img src="https://placehold.co/100x50" alt="Yale University logo" className="mx-2"/>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
+                                <div>
+                                    <img src="https://placehold.co/600x400" alt="Tablet displaying a document with dense text, with an interface overlay for asking questions and getting AI responses" className="shadow-lg"/>
+                                </div>
+                                <div className="flex flex-col items-start justify-center">
+                                    <h2 className="text-5xl font-bold text-gray-800 mb-6">Sources included</h2>
+                                    <p className="text-gray-600 text-lg mb-8">
+                                        Every response is backed by sources. extracted from the uploaded document. Our AI won’t stray or give you its “opinion”.
+                                    </p>
+                                    <div className="flex space-x-4">
+                                        <button className="bg-transparent border border-gray-800 text-gray-800 py-2 px-6 rounded hover:bg-gray-800 hover:text-white transition-colors duration-300">
+                                            Demo
+                                        </button>
+                                        <button className="bg-orange-500 text-white py-2 px-6 rounded hover:bg-orange-600 transition-colors duration-300">
+                                            Sign up
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
