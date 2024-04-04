@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 
 import "react-loading-skeleton/dist/skeleton.css";
-import { Toast } from "@/components/ui/toast";
+import {CSPostHogProvider} from "@/components/PostHogProvider";
 import { Toaster } from "@/components/ui/toaster";
 import 'simplebar-react/dist/simplebar.min.css'
 import CrispProvider from "@/components/CrispProvider";
@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en" className="light">
       <Providers>
         <CrispProvider/>
+        <CSPostHogProvider>
       <body className={cn(
         'min-h-screen font-sans autialiased grainy',
         inter.className
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Navbar />
         {children}
       </body>
+      </CSPostHogProvider>
       </Providers>
     </html>
   );
