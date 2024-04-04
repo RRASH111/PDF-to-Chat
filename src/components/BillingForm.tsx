@@ -57,9 +57,6 @@ const handleCreateStripeSession = async () => {
   }
 };
 
-const handleButtonClick = () => {
-  console.log("clicked", subscriptionPlan.quota);
-};
 
 
   return (
@@ -86,10 +83,6 @@ const handleButtonClick = () => {
             ? 'Manage Subscription'
             : 'Upgrade to PRO'}
           </Button>
-
-          <Button type="button" onClick={handleButtonClick} disabled={isLoading}>
-              Log Subscription Plan
-            </Button>
 
             {subscriptionPlan.isSubscribed ? (
               <p className='rounded-full text-xs font-medium'>
