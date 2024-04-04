@@ -29,7 +29,7 @@ export default function RootLayout({
         inter.className
       )}>
         <Toaster/>
-        <Navbar />
+        <Navbar/>
         {children}
       </body>
       </CSPostHogProvider>
