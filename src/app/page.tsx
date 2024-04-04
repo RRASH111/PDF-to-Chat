@@ -6,9 +6,6 @@ import { buttonVariants } from "@/components/ui/button";
 import PriceTool from "@/components/priceTool";
 import FeatureSec from "@/components/FeatureSec";
 
-
-
-
 export default function Home() {
   return (
     <>
@@ -35,25 +32,27 @@ export default function Home() {
             href="/dashboard"
             target="_blank"
           >
-            Demo<PlayCircleIcon className="ml-2 h-5 w-5" />
+            Demo
+            <PlayCircleIcon className="ml-2 h-5 w-5" />
           </Link>
           <Link
             className={buttonVariants({
               size: "lg",
-              
+
               className: "mt-5",
             })}
             href="/dashboard"
             target="_blank"
           >
-            Get started<ArrowRight className="ml-2 h-5 w-5" />
+            Get started
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
 
         <div className="flex items-center mb-12">
           <div className="flex justify-center items-center mr-6">
             <Image
-              src='/users/1.jpg'
+              src="/users/1.jpg"
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
               width={40}
@@ -61,7 +60,7 @@ export default function Home() {
               objectFit="cover"
             />
             <Image
-              src='/users/2.jpg'
+              src="/users/2.jpg"
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
               width={40}
@@ -69,7 +68,7 @@ export default function Home() {
               objectFit="cover"
             />
             <Image
-              src='/users/3.jpg'
+              src="/users/3.jpg"
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
               width={40}
@@ -77,7 +76,7 @@ export default function Home() {
               objectFit="cover"
             />
             <Image
-              src='/users/4.jpg'
+              src="/users/4.jpg"
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
               width={40}
@@ -85,7 +84,7 @@ export default function Home() {
               objectFit="cover"
             />
             <Image
-              src='/users/5.jpg'
+              src="/users/5.jpg"
               alt="User profile placeholder image"
               className="rounded-full border-2 border-white -ml-2"
               width={40}
@@ -134,21 +133,21 @@ export default function Home() {
           </div>
 
           <div>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="mt-16 flow-root sm:mt-24">
-            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <Image
-                src="/dashboard-preview.jpg"
-                alt="uploading preview"
-                width={1419}
-                height={732}
-                quality={100}
-                className="rounded-md bg-white p-2 sm:p-2 md:p-2 shadow-2xl ring-1 ring-gray-900/10"
-              />
+            <div className="mx-auto max-w-6xl px-6 lg:px-8">
+              <div className="mt-16 flow-root sm:mt-24">
+                <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                  <Image
+                    src="/dashboard-preview.jpg"
+                    alt="uploading preview"
+                    width={1419}
+                    height={732}
+                    quality={100}
+                    className="rounded-md bg-white p-2 sm:p-2 md:p-2 shadow-2xl ring-1 ring-gray-900/10"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-           {/* <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            {/* <div className="mx-auto max-w-6xl px-6 lg:px-8">
               <div className="mt-8 flow-root sm:mt-8">
                 <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                   video  
@@ -171,7 +170,7 @@ export default function Home() {
                 </div>
               </div>
             </div>*/}
-          </div> 
+          </div>
 
           <div className="text-center sm:mt-24">
             <h1 className="text-zinc-600 mb-20 text-xl sm:text-3xl">
@@ -199,7 +198,7 @@ export default function Home() {
                 width={200}
                 height={200}
               />
-              
+
               <Image
                 src="/uni/5.png"
                 alt="University of Pennsylvania logo"
@@ -254,8 +253,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <FeatureSec/>
-        
+        <FeatureSec />
 
         {/* Pricing section */}
         <div className="mb-24 px-6 lg:px-8">
@@ -277,7 +275,7 @@ export default function Home() {
             Start for <span className="text-orange-600">free</span> now
           </h1>
           <p className="text-gray-600 mb-8 text-xl">
-          Join over 400,000+ people already saving time with PDF to Chat.
+            Join over 400,000+ people already saving time with PDF to Chat.
           </p>
         </div>
         <div className="flex justify-center gap-4 mb-6">
@@ -304,8 +302,6 @@ export default function Home() {
             Get started <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
-
-        
 
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mt-16 flow-root sm:mt-24">

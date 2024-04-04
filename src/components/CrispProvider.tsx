@@ -1,13 +1,9 @@
-"use client"
+"use client";
 
-import CrispChat from "./CrispChat"
-
-
+import CrispChat from "./CrispChat";
 
 const CrispProvider = () => {
-  return (
-    <CrispChat />
-  )
-}
+  return <CrispChat />;
+};
 
-export default CrispProvider
+export default CrispProvider;
