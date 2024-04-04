@@ -74,6 +74,8 @@ const onUploadComplete = async({
     const isFreeExceeded =
       pagesAmt >
       PLANS.find((plan) => plan.name === 'Free')!.pagesPerPdf
+    const Ch = PLANS.find((plan) => plan.name === 'Pro')!.pagesPerPdf
+    console.log(isProExceeded, isFreeExceeded, pagesAmt, Ch)
 
     if (
       (isSubscribed && isProExceeded) ||
@@ -128,7 +130,7 @@ await db.file.update({
  
 
 export const ourFileRouter = {
-  freePlanUploader: f({ pdf: { maxFileSize: "4MB" } })
+  freePlanUploader: f({ pdf: { maxFileSize: "8MB" } })
     .middleware(middleware)
     .onUploadComplete(onUploadComplete),
   proPlanUploader: f({ pdf: { maxFileSize: "32MB" } })

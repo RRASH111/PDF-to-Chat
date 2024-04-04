@@ -41,7 +41,7 @@ const PriceTool = async() => {
           text: '50 Questions limit',
         },
         {
-          text: '5MB max file size',
+          text: '8MB max file size',
           footnote:
             'The maximum file size of a single PDF file.',
         },

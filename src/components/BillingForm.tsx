@@ -40,6 +40,10 @@ const BillingForm = ({
     },
   });
 
+
+
+
+
   const [isLoading, setIsLoading] = useState(false);
 
 const handleCreateStripeSession = async () => {
@@ -51,6 +55,10 @@ const handleCreateStripeSession = async () => {
   } finally {
     setIsLoading(false);
   }
+};
+
+const handleButtonClick = () => {
+  console.log("clicked", subscriptionPlan.quota);
 };
 
 
@@ -65,7 +73,7 @@ const handleCreateStripeSession = async () => {
             <CardTitle>Subscription Plan</CardTitle>
             <CardDescription>
               You are currently on the{' '}
-              <strong>{subscriptionPlan.name}</strong> plan.
+              <span className='text-orange-600'>{subscriptionPlan.name}</span> plan.
             </CardDescription>
           </CardHeader>
 
@@ -79,11 +87,15 @@ const handleCreateStripeSession = async () => {
             : 'Upgrade to PRO'}
           </Button>
 
+          <Button type="button" onClick={handleButtonClick} disabled={isLoading}>
+              Log Subscription Plan
+            </Button>
+
             {subscriptionPlan.isSubscribed ? (
               <p className='rounded-full text-xs font-medium'>
                 {subscriptionPlan.isCanceled
                   ? 'Your plan will be canceled on '
-                  : 'Your plan renews on'}
+                  : 'Your plan renews on '}
                 {format(
                   subscriptionPlan.stripeCurrentPeriodEnd!,
                   'dd.MM.yyyy'

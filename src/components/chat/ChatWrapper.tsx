@@ -86,7 +86,7 @@ const ChatWrapper = ({
           </h3>
           <p className='text-zinc-500 text-sm'>
             Your <span className="font-medium">Free</span> {' '}
-            plan suports up to 5 pages.
+            plan suports up to 20 pages.
           </p>
           <Link href='/dashboard' className={buttonVariants({
             variant: 'secondary',
