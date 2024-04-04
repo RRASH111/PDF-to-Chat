@@ -25,7 +25,7 @@ const middleware = async () => {
 
   return { subscriptionPlan, userId: user.id}
 }
-
+ 
 const onUploadComplete = async({
   metadata, file
 }: {
@@ -43,6 +43,19 @@ const onUploadComplete = async({
   })
 
   if (isFileExist) return
+
+  const { subscriptionPlan } = metadata
+  const { isSubscribed } = subscriptionPlan
+
+  const createdFiles = await db.file.count({
+    where: {
+      userId: metadata.userId,
+    },
+  });
+
+  if (!isSubscribed && createdFiles >= 1) {
+    throw new UploadThingError("You have reached your file limit.");
+  }
 
   const createdFile = await db.file.create({
     data: {
@@ -66,6 +79,10 @@ const onUploadComplete = async({
     const pagesAmt = pageLevelDocs.length
     const { subscriptionPlan } = metadata
     const { isSubscribed } = subscriptionPlan
+    
+
+    
+    
 
 
     const isProExceeded =
