@@ -33,7 +33,6 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
   const { data: files } = trpc.getUserFiles.useQuery();
 
-  console.log(files?.length);
 
   const cantUpload = files && files.length >= 1 && !isSubscribed;
 
