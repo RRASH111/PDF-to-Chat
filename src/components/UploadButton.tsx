@@ -6,14 +6,13 @@ import { DialogTrigger } from "@radix-ui/react-dialog";
 import { Button } from "./ui/button";
 
 import Dropzone from "react-dropzone";
-import { Cloud, File, Loader2 } from "lucide-react";
+import { Cloud, File, Loader2, XCircle } from "lucide-react";
 import { Progress } from "./ui/progress";
 import { useUploadThing } from "@/lib/uploadthing";
-import { Toast } from "./ui/toast";
 import { useToast } from "./ui/use-toast";
 import { trpc } from "@/app/_trpc/client";
 import { useRouter } from "next/navigation";
-import { router } from "@/trpc/trpc";
+import Link from "next/link";
 
 const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const router = useRouter();
@@ -32,6 +31,12 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
     retryDelay: 500,
   });
 
+  const { data: files } = trpc.getUserFiles.useQuery();
+
+  console.log(files?.length);
+
+  const cantUpload = files && files.length >= 1 && !isSubscribed;
+
   const startSimulatedProgress = () => {
     setUploadProgress(0);
 
@@ -41,7 +46,7 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
           clearInterval(interval);
           return prevProgress;
         }
-        return prevProgress + 5;
+        return prevProgress + 2.5;
       });
     }, 500);
 
@@ -128,15 +133,38 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
                   />
                   {uploadProgress === 100 ? (
                     <div className="mt-4 text-center">
-                      <p className="text-sm text-zinc-500">
-                        Upload complete Redirecting...
-                      </p>
+                      <p className="text-sm text-zinc-500">Redirecting...</p>
                     </div>
                   ) : (
-                    <div className="flex gap-1 items-center justify-center text-sm text-zinc-400 pt-2 text-center">
-                      <Loader2 className="h-3 w-3 animate-spin" />
-                      Uploading...
-                    </div>
+                    <>
+                      {cantUpload ? (
+                        <>
+                          <div className="flex gap-1 items-center justify-center text-sm text-red-600 pt-2 text-center">
+                            You reached the upload limit.
+                          </div>
+                          <p className="flex gap-1 items-center justify-center text-xs text-zinc-400 pt-2 text-center">
+                            Please upgrade to the{" "}
+                            <Link
+                              href="/pricing"
+                              className="text-orange-600 underline"
+                            >
+                              PRO
+                            </Link>
+                            plan to upload more files.
+                          </p>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex gap-1 items-center justify-center text-sm text-zinc-400 pt-2 text-center">
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                            Preparing your AI knowledge base...
+                          </div>
+                          <p className="flex gap-1 items-center justify-center text-xs text-zinc-400 pt-2 text-center">
+                            This might take a while
+                          </p>
+                        </>
+                      )}
+                    </>
                   )}
                 </div>
               ) : null}
@@ -149,6 +177,19 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
               />
             </label>
           </div>
+          {cantUpload ? (
+            <>
+              <div className="flex gap-1 items-center justify-center text-sm text-red-400 pt-2 text-center">
+                <XCircle className="h-3 w-3 text-red-400 "/>
+                Upgrade to the <Link
+                              href="/pricing"
+                              className="text-orange-600 underline"
+                            >
+                              PRO
+                            </Link> plan to upload more files.
+              </div>
+            </>
+          ) : null}
         </div>
       )}
     </Dropzone>
