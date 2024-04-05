@@ -116,7 +116,7 @@ const PriceTool = async () => {
                       <span className="text-orange-600 shadow-orange-200">
                         Unlimited
                       </span>{" "}
-                      Downloads
+                      Uploads
                     </p>
 
                     <Tooltip delayDuration={300}>

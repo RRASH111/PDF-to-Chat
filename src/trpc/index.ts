@@ -45,6 +45,15 @@ export const appRouter = router({
       },
     });
   }),
+  getUserFilesNum: privateProcedure.query(async ({ ctx }) => {
+    const { userId } = ctx;
+
+    return db.file.count({
+      where: {
+        userId,
+      },
+    });
+  }), 
   createStripeSession: privateProcedure.mutation(async ({ ctx }) => {
     const { userId } = ctx;
 
@@ -74,7 +83,7 @@ export const appRouter = router({
     const stripeSession = await stripe.checkout.sessions.create({
       success_url: billingUrl,
       cancel_url: billingUrl,
-      payment_method_types: ["card"],
+      payment_method_types: ["card" ,"cashapp"],
       mode: "subscription",
       billing_address_collection: "auto",
       line_items: [
