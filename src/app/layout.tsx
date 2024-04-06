@@ -29,10 +29,11 @@ export default function RootLayout({
               inter.className
             )}
           >
-            <SpeedInsights />
+            
             <Toaster />
             <Navbar />
             {children}
+            <SpeedInsights />
           </body>
         </CSPostHogProvider>
       </Providers>
