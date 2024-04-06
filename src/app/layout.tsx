@@ -3,7 +3,7 @@ import "./globals.css";
 import { cn, constructMetadata } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "react-loading-skeleton/dist/skeleton.css";
 import { CSPostHogProvider } from "@/components/PostHogProvider";
 import { Toaster } from "@/components/ui/toaster";
@@ -29,6 +29,7 @@ export default function RootLayout({
               inter.className
             )}
           >
+            <SpeedInsights />
             <Toaster />
             <Navbar />
             {children}
