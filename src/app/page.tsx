@@ -172,7 +172,7 @@ export default function Home() {
             </div>*/}
           </div>
 
-          <div className="text-center sm:mt-24">
+          <div className="text-center mt-10">
             <h1 className="text-zinc-600 mb-20 text-xl sm:text-3xl">
               Honored to serve students from all Ivy League schools 🫶
             </h1>
@@ -252,8 +252,11 @@ export default function Home() {
               you covered.
             </p>
           </div>
+          
         </div>
-        <FeatureSec />
+        <div className="hidden md:hidden lg:block">
+  <FeatureSec/>
+</div>
 
         {/* Pricing section */}
         <div className="mb-24 px-6 lg:px-8">

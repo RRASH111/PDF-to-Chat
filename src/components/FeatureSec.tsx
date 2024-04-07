@@ -3,12 +3,22 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight, PlayCircleIcon } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const FeatureSec = () => {
   return (
-    <MaxWidthWrapper calssName="w-max-screen w-max ">
-      <div className="min-h-screen w-max-screen bg-gradient-to-r from-orange-500 via-orange-500 to-amber-400 bg-clip-text text-transparent ">
-        <div className="py-20 px-5 w-8xl w-fit flex flex-col items-center justify-center ">
+    <MaxWidthWrapper calssName="w-max-screen w-max">
+      <div className="min-h-screen bg-gradient-to-r from-orange-500 via-orange-500 to-amber-400 bg-clip-text text-transparent">
+        <div className="py-20 px-5 w-8xl w-fit flex flex-col items-center justify-center">
+          <div
+            className={cn(
+              "max-w-8xl -mx-52 w-fit flex flex-col items-center justify-center mr-16",
+              {
+                "flex-row md:flex-col": true,
+                "gap-16 md:gap-20": true,
+              }
+            )}
+          ></div>
           <div className="max-w-8xl -mx-52 w-fit flex flex-col items-center justify-center mr-16	">
             <div className="grid grid-cols-1 my-5 md:grid-cols-2 gap-16">
               <div className="flex flex-col items-start justify-center">
