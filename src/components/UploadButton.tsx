@@ -33,7 +33,6 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
 
   const { data: files } = trpc.getUserFiles.useQuery();
 
-
   const cantUpload = files && files.length >= 1 && !isSubscribed;
 
   const startSimulatedProgress = () => {
@@ -179,13 +178,12 @@ const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
           {cantUpload ? (
             <>
               <div className="flex gap-1 items-center justify-center text-sm text-red-400 pt-2 text-center">
-                <XCircle className="h-3 w-3 text-red-400 "/>
-                Upgrade to the <Link
-                              href="/pricing"
-                              className="text-orange-600 underline"
-                            >
-                              PRO
-                            </Link> plan to upload more files.
+                <XCircle className="h-3 w-3 text-red-400 " />
+                Upgrade to the{" "}
+                <Link href="/pricing" className="text-orange-600 underline">
+                  PRO
+                </Link>{" "}
+                plan to upload more files.
               </div>
             </>
           ) : null}
@@ -202,12 +200,18 @@ const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
     <Dialog
       open={isOpen}
       onOpenChange={(v) => {
-        if (!v) {
-          setIsOpen(v);
-        }
+        setIsOpen(v); // Update isOpen state directly
       }}
     >
-      <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+      <DialogTrigger
+        onClick={() => {
+          if (!isOpen) {
+            // Check if the dialog is not already open
+            setIsOpen(true);
+          }
+        }}
+        asChild
+      >
         <Button>Upload PDF</Button>
       </DialogTrigger>
       <DialogContent>
@@ -216,5 +220,4 @@ const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
     </Dialog>
   );
 };
-
 export default UploadButton;
