@@ -87,16 +87,16 @@ const onUploadComplete = async ({
 
     
 
-    if ((isSubscribed && isProExceeded) || (!isSubscribed && isFreeExceeded)) {
-      await db.file.update({
-        data: {
-          uploadStatus: "FAILED",
-        },
-        where: {
-          id: createdFile.id,
-        },
-      });
-    }
+   // if ((isSubscribed && isProExceeded) || (!isSubscribed && isFreeExceeded)) {
+   //   await db.file.update({
+   //     data: {
+   //       uploadStatus: "FAILED",
+   //     },
+   //     where: {
+   //       id: createdFile.id,
+   //     },
+   //   });
+   // }
 
     // vectorize all
     const pinecone = await getPineconeClient();
