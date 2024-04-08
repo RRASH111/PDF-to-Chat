@@ -1,4 +1,3 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import UpgradeButton from "@/components/UpgradeButton";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -78,7 +77,7 @@ const PriceTool = async () => {
   ];
 
   return (
-    <div className="pt-15 grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <div className="pt-15 grid grid-cols-1 gap-5 lg:grid-cols-2 md:grid-cols-2">
       <TooltipProvider>
         {pricingItems.map(({ plan, tagline, quota, features }) => {
           const price =
