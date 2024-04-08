@@ -46,7 +46,7 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL("https://PDFTo.chat"),
-    themeColor: "#FFF",
+    themeColor: "light",
     ...(noIndex && {
       robots: {
         index: false,
