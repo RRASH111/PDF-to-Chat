@@ -78,25 +78,25 @@ const onUploadComplete = async ({
     const { isSubscribed } = subscriptionPlan;
 
     const isProExceeded =
-      pagesAmt >= PLANS.find((plan) => plan.name === "Pro")!.pagesPerPdf //&&
-      //createdFilesCount >= PLANS.find((plan) => plan.name === "Pro")!.quota;
+      pagesAmt >= PLANS.find((plan) => plan.name === "Pro")!.pagesPerPdf &&
+      createdFilesCount >= PLANS.find((plan) => plan.name === "Pro")!.quota;
     const isFreeExceeded =
-      pagesAmt >= PLANS.find((plan) => plan.name === "Free")!.pagesPerPdf //&&
-      //createdFilesCount >= PLANS.find((plan) => plan.name === "Free")!.quota;
+      pagesAmt >= PLANS.find((plan) => plan.name === "Free")!.pagesPerPdf &&
+      createdFilesCount >= PLANS.find((plan) => plan.name === "Free")!.quota;
     
 
     
 
-   // if ((isSubscribed && isProExceeded) || (!isSubscribed && isFreeExceeded)) {
-   //   await db.file.update({
-   //     data: {
-   //       uploadStatus: "FAILED",
-   //     },
-   //     where: {
-   //       id: createdFile.id,
-   //     },
-   //   });
-   // }
+    if ((isSubscribed && isProExceeded) || (!isSubscribed && isFreeExceeded)) {
+      await db.file.update({
+        data: {
+          uploadStatus: "FAILED",
+        },
+        where: {
+          id: createdFile.id,
+        },
+      });
+    }
 
     // vectorize all
     const pinecone = await getPineconeClient();
