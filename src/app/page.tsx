@@ -1,7 +1,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, PlayCircleIcon, StarsIcon, Star } from "lucide-react";
+import { ArrowRight, PlayCircleIcon, Star } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import PriceTool from "@/components/priceTool";
 import FeatureSec from "@/components/FeatureSec";
