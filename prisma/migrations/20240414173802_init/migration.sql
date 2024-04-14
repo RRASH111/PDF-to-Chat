@@ -20,9 +20,9 @@ CREATE TABLE "File" (
     "uploadStatus" "UploadStatus" NOT NULL DEFAULT 'PENDING',
     "url" TEXT NOT NULL,
     "key" TEXT NOT NULL,
+    "userId" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "userId" TEXT,
 
     CONSTRAINT "File_pkey" PRIMARY KEY ("id")
 );
@@ -32,10 +32,10 @@ CREATE TABLE "Message" (
     "id" TEXT NOT NULL,
     "text" TEXT NOT NULL,
     "isUserMessage" BOOLEAN NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
     "userId" TEXT,
     "fileId" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Message_pkey" PRIMARY KEY ("id")
 );
@@ -51,6 +51,12 @@ CREATE UNIQUE INDEX "User_stripe_customer_id_key" ON "User"("stripe_customer_id"
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_stripe_subscription_id_key" ON "User"("stripe_subscription_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "File_url_key" ON "File"("url");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "File_key_key" ON "File"("key");
 
 -- AddForeignKey
 ALTER TABLE "File" ADD CONSTRAINT "File_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
